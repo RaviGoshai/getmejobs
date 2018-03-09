@@ -6,4 +6,6 @@ package rubberducks.getmejob.Interface;
 
 public interface Constants {
     String BASE_URL = "http://139.59.86.120/api/";
+
+    String UPLOAD_FILE="registerSeeker";
 }

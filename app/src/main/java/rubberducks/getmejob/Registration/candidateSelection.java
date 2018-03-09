@@ -12,4 +12,6 @@ public class candidateSelection extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.candidate_selection);
     }
+
+
 }
