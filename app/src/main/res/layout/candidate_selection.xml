@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    tools:context="rubberducks.getmejob.Registration.candidateSelection">
+
+
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="16dp"
+    android:layout_marginLeft="16dp"
+    android:layout_centerVertical="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+     >
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            >
+
+            <RadioButton
+                android:id="@+id/radioButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fresher"
+                android:checked="true"
+                android:layout_marginTop="20dp"
+                />
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/exprience"
+                android:layout_marginTop="15dp"/>
+
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ok"
+            android:layout_below="@+id/radio_group"
+            android:layout_alignParentRight="true"
+            android:padding="15dp"
+            android:clickable="true"
+            android:background="@drawable/ripple"/>
+
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
+
+
+</RelativeLayout>
