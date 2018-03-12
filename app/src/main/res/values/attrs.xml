@@ -1,0 +1,5 @@
+<resources>
+    <declare-styleable name="CustomEntryEdittext">
+        <attr name="entryCount" format="integer" />
+    </declare-styleable>
+</resources>

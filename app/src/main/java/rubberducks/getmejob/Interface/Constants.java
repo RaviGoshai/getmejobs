@@ -5,7 +5,10 @@ package rubberducks.getmejob.Interface;
  */
 
 public interface Constants {
-    String BASE_URL = "http://139.59.86.120/api/";
+    String BASE_URL = "   http://192.168.29.182:8000/api/v1/";
+    public final String FACEBOOK_APP_ID="SASDASDAD";
+    public  final String GOOGAL_AUTH_KEY = "sdad";
 
-    String UPLOAD_FILE="registerSeeker";
+    String LOGIN="login";
+    String PREFERRED_LOCATION="preferredLocation";
 }
