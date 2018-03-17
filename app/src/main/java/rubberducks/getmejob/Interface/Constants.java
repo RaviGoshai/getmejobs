@@ -11,4 +11,10 @@ public interface Constants {
 
     String LOGIN="login";
     String PREFERRED_LOCATION="preferredLocation";
+    String REGISTRATION="registerSeeker";
+    String OTP_VERIFY="otpVerify";
+    String FORGET_PASSWORD="forgetPassword";
+    String RESET_PASSWORD="resetPassword";
+
+
 }

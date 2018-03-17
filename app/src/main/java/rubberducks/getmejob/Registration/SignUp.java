@@ -41,11 +41,9 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     private AutoCompleteTextView mobile;
     private AutoCompleteTextView email;
     private EditText password;
-    private AutoCompleteTextView years;
-    private AutoCompleteTextView month;
+
     private Button nextSignUpButton;
-    private String[] countries_list={"0","1","2","3","4","5","6"};
-    private Spinner spinner1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,8 +66,6 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         mobile = (AutoCompleteTextView) findViewById(R.id.mobile);
         email = (AutoCompleteTextView) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
-        years = (AutoCompleteTextView) findViewById(R.id.years);
-        month = (AutoCompleteTextView) findViewById(R.id.month);
         nextSignUpButton = (Button) findViewById(R.id.next_sign_up_button);
         nextSignUpButton.setOnClickListener(this);
 
@@ -86,106 +82,23 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
 
 
-
-       final ArrayAdapter<String> spinner_countries = new  ArrayAdapter<String>(SignUp.this,android.R.layout.simple_spinner_dropdown_item, countries_list);
-        month.setAdapter(spinner_countries);
-
-        month.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                month.showDropDown();
-
-            }
-        });
-
-        month.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                InputMethodManager in = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                in.hideSoftInputFromWindow(view.getWindowToken(), 0);
-                month.setText(""+(String) parent.getItemAtPosition(position));
-            }
-        });
-
-
-        years.setAdapter(spinner_countries);
-        years.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                years.showDropDown();
-            }
-        });
-
-        years.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                InputMethodManager in = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                in.hideSoftInputFromWindow(view.getWindowToken(), 0);
-                years.setText(""+(String) parent.getItemAtPosition(position));
-            }
-        });
-
-        month.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                hideKeyboard();
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                hideKeyboard();
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
-        years.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                hideKeyboard();
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                hideKeyboard();
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
     }
 
-    private void hideKeyboard() {
-        // Check if no view has focus:
-        View view = this.getCurrentFocus();
-        if (view != null) {
-            InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
-            inputManager.hideSoftInputFromWindow(view.getWindowToken(),0);
-        }
-    }
+
 
     private void signUpValidation(){
         name.setError(null);
         mobile.setError(null);
         email.setError(null);
         password.setError(null);
-        years.setError(null);
-        month.setError(null);
+
 
         // Store values at the time of the login attempt.
         String nameStr = name.getText().toString();
         String mobileStr = mobile.getText().toString();
         String emailStr = email.getText().toString();
         String passwordStr = password.getText().toString();
-        String yearsStr = years.getText().toString();
-        String monthStr = month.getText().toString();
+
 
 
         if(TextUtils.isEmpty(nameStr)){
@@ -219,15 +132,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
             password.setError(getString(R.string.error_invalid_password));
             password.requestFocus();
         }
-        /*else if(TextUtils.isEmpty(yearsStr)){
-            years.setError(getString(R.string.error_field_required));
-            years.requestFocus();
-        }*/
 
-        else if(TextUtils.isEmpty(monthStr)){
-            month.setError(getString(R.string.error_field_required));
-            month.requestFocus();
-        }
         else {
             if(NetworkAvailability.chkStatus(SignUp.this)){
                 //callPrefferedCityApi();
@@ -261,6 +166,24 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
             }
         });
     }
+
+/*    private void callSignUpApi(String name,String mobile,String email,String password,String token){
+        Call<JsonObject> call = apiClient.userRegister(name,mobile,email,password,token);
+        loaderDialog.showDialog(SignUp.this, false);
+        call.enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                loaderDialog.dismissDialog(SignUp.this);
+                Log.e(TAG,"response :"+response);
+            }
+
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+                loaderDialog.dismissDialog(SignUp.this);
+                Log.e(TAG,"error :"+t.toString());
+            }
+        });
+    }*/
 
         private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic

@@ -48,10 +48,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        if (mList == null) {
-            return 0;
-        }
-        return mList.size();
+   return 15;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

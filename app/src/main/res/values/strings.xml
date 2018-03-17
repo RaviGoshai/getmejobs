@@ -30,9 +30,12 @@
     <string name="am_student">I am a student</string>
     <string name="am_working">I am working</string>
     <string name="error_incorrect_mobile">Invalid Mobile Number</string>
+    <string name="it_takes_few_second">It takes a few seconds</string>
+    <string name="register_term_and_condition">I have read and agree to the Terms and Conditions.</string>
+    <string name="already_have_account">Already have an account?</string>
 
     <!--  Login Selection-->
-    <string name="login_selection_title">Get Me Job</string>
+    <string name="login_selection_title">GetMeJob</string>
     <string name="login_selection_tag">Let’s build your future - Together</string>
     <string name="continue_with">Continue with</string>
     <string name="register">REGISTER</string>
@@ -54,16 +57,97 @@ number, please enter it below.</string>
 
     <!--  Verify OTP-->
     <string name="resend">Resend in 30 sec</string>
+    <string name="submit">SUBMIT</string>
     <string name="edit_number">Edit Number</string>
 
     <!--  Reset password-->
-
     <string name="reset_password">Reset Password</string>
     <string name="reset_password_tag">What would you like your new \n password to be?</string>
     <string name="reset_new_password">New Password</string>
     <string name="reset_re_password">Re-enter Password</string>
-
     <string name="reset_password_save">SAVE</string>
+    <string name="error_field_password">Password not match</string>
+
+    <!--  Navigation bar-->
+    <string name="home">Home</string>
+    <string name="job_search">Job Search</string>
+    <string name="notification">Notifications</string>
+    <string name="job_status">Job Status</string>
+    <string name="profile">Profile</string>
+    <string name="student_history">Student History</string>
+    <string name="setting">Settings</string>
+    <string name="logout">Logout</string>
+
+    <!--  Job Search-->
+    <string name="job_search_header">Job Search</string>
+    <string name="skill">Skill, Designations</string>
+    <string name="min_salary">Min Salary</string>
+    <string name="location">Location</string>
+    <string name="search">SEARCH</string>
+
+    <!--  Job Description-->
+    <string name="Job_des_header">Job Description</string>
+    <string name="industry_type">Industry Type</string>
+    <string name="role">Role</string>
+    <string name="employement_type">Employment Type</string>
+    <string name="candiate_profile">Desired Candidate Profile</string>
+    <string name="apply">APPLY</string>
+
+    <!--  Student History-->
+    <string name="last_login">Last Login</string>
+    <string name="registration_date">Registration Date</string>
+    <string name="status">Status</string>
+    <string name="saved_jobs">Saved Job</string>
+    <string name="applied_jobs">Applied Job</string>
+    <string name="interviewd">Interviewed</string>
+    <string name="candiated_selected">Candidate Selected by Company</string>
+    <string name="candiated_rejected">Candidate Rejected by Company</string>
+
+    <!--  Setting-->
+    <string name="notification_setting">Notifications Settings</string>
+    <string name="preference_notification">Set your preferences of notification</string>
+    <string name="change_password">Change Password</string>
+    <string name="set_password">Set your password</string>
+    <string name="profile_visibilty">Profile Visibility</string>
+    <string name="profile_des">Your profile is visible in Get Me Job database.
+Recruiters are informed that you are actively looking
+for jobs.</string>
+
+    <string name="terms_condition">Terms and Conditions</string>
+    <string name="privacy_policy">Privacy Policy</string>
+
+    <!--  profile-->
+    <string name="qualification">Qualification</string>
+    <string name="preferred_industry">Preferred Industry</string>
+    <string name="profile_skill">Skills and Area of Expertise</string>
+    <string name="attach_resume">Attached resume</string>
+    <string name="update">UPDATE</string>
+    <string name="upload">Upload</string>
+
+    <!--  Qualification Activity-->
+    <string name="qualification_level">Highest education level</string>
+    <string name="course">Course</string>
+    <string name="specialization">Specialization</string>
+    <string name="university_institude">University / Institute</string>
+    <string name="passing_out_year">Passing out year</string>
+
+    <!--  Work Exprience-->
+    <string name="current_designation">Current Designation</string>
+    <string name="current_company">Current Company</string>
+    <string name="current_salary">Current Salary (INR)</string>
+    <string name="joining_date">Joining Date</string>
+    <string name="leaving_date">Leaving Date</string>
+    <string name="notice_period">Notice Period (optional)</string>
+    <string name="wwork_exprience_tag">If you are not working  currently, add information about your last job.</string>
+
+    <!--  Prf-->
+    <string name="sort_by">Sort by</string>
+    <string name="preferred_location">Preferred Location</string>
+    <string name="relevance">Relevance</string>
+    <string name="recent_post">Recent Post</string>
+    <string name="designation">Designation</string>
+    <string name="preferences">Preferences</string>
+    <string name="dob">Date of birth</string>
 
 
 </resources>

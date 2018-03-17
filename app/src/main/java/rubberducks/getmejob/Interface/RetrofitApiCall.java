@@ -27,6 +27,23 @@ public interface RetrofitApiCall {
     @POST(Constants.LOGIN)
     Call<Constants> login(@Field("email") String email, @Field("password") String password);
 
+    @FormUrlEncoded
+    @POST(Constants.REGISTRATION)
+    Call<JsonObject> userRegister(@Field("name") String name, @Field("mobile") String mobile,@Field("email") String email,@Field("password") String password,@Field("location") String location,@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST(Constants.OTP_VERIFY)
+    Call<JsonObject> verifyOTP(@Field("mobile") String email, @Field("otp") String password);
+
+    @FormUrlEncoded
+    @POST(Constants.FORGET_PASSWORD)
+    Call<JsonObject> forgetPassword(@Field("mobile") String mobile);
+
+    @FormUrlEncoded
+    @POST(Constants.RESET_PASSWORD)
+    Call<JsonObject> resetPassword(@Field("seekerId") String seekerId,@Field("password") String password);
+
+
     @GET(Constants.PREFERRED_LOCATION)
     Call<JsonObject> getPreferredLocation();
 

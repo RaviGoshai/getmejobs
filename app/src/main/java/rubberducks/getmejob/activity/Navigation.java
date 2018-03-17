@@ -1,5 +1,6 @@
 package rubberducks.getmejob.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,6 +15,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
+import rubberducks.getmejob.JobSearch.JobSearchActivity;
+import rubberducks.getmejob.Profile.EmployeProfile;
 import rubberducks.getmejob.R;
 
 public class Navigation extends AppCompatActivity
@@ -49,46 +52,49 @@ public class Navigation extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.navigation, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+        // Handle job_serch view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_home) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_jobSearch) {
+            Intent intent=new Intent(Navigation.this, JobSearchActivity.class);
+            startActivity(intent);
 
         }
+
+        else if (id == R.id.nav_notification) {
+            Intent intent=new Intent(Navigation.this, Notifcation.class);
+            startActivity(intent);
+
+        }
+
+        else if (id == R.id.nav_profile) {
+            Intent intent=new Intent(Navigation.this, EmployeProfile.class);
+            startActivity(intent);
+
+        }
+        else if (id == R.id.nav_studentHistory) {
+            Intent intent=new Intent(Navigation.this, StudentHistory.class);
+            startActivity(intent);
+
+        }
+
+        else if (id == R.id.nav_setting) {
+            Intent intent=new Intent(Navigation.this, SettingActivity.class);
+            startActivity(intent);
+
+        }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }
