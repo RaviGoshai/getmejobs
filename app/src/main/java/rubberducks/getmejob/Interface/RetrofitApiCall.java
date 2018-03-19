@@ -29,7 +29,7 @@ public interface RetrofitApiCall {
 
     @FormUrlEncoded
     @POST(Constants.REGISTRATION)
-    Call<JsonObject> userRegister(@Field("name") String name, @Field("mobile") String mobile,@Field("email") String email,@Field("password") String password,@Field("location") String location,@Field("token") String token);
+    Call<JsonObject> userRegister(@Field("mobile") String mobile,@Field("email") String email);
 
     @FormUrlEncoded
     @POST(Constants.OTP_VERIFY)

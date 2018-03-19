@@ -167,8 +167,8 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         });
     }
 
-/*    private void callSignUpApi(String name,String mobile,String email,String password,String token){
-        Call<JsonObject> call = apiClient.userRegister(name,mobile,email,password,token);
+    private void callSignUpApi(String name,String mobile,String email,String password){
+        Call<JsonObject> call = apiClient.userRegister(mobile,email);
         loaderDialog.showDialog(SignUp.this, false);
         call.enqueue(new Callback<JsonObject>() {
             @Override
@@ -183,7 +183,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                 Log.e(TAG,"error :"+t.toString());
             }
         });
-    }*/
+    }
 
         private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic

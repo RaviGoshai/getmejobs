@@ -100,8 +100,8 @@ number, please enter it below.</string>
     <string name="saved_jobs">Saved Job</string>
     <string name="applied_jobs">Applied Job</string>
     <string name="interviewd">Interviewed</string>
-    <string name="candiated_selected">Candidate Selected by Company</string>
-    <string name="candiated_rejected">Candidate Rejected by Company</string>
+    <string name="candiated_selected">Selected by Company</string>
+    <string name="candiated_rejected">Rejected by Company</string>
 
     <!--  Setting-->
     <string name="notification_setting">Notifications Settings</string>

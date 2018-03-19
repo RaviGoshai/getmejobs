@@ -24,6 +24,7 @@ public class QualificationActivity extends AppCompatActivity {
 
         setUpUi();
     }
+
     private void setUpUi(){
         myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         qualificationLevel = (AutoCompleteTextView) findViewById(R.id.qualification_level);

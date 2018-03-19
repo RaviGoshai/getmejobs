@@ -95,6 +95,7 @@
                         android:hint="@string/joining_date"
                         android:inputType="text"
                         android:maxLines="1"
+                        android:focusableInTouchMode="false"
                         android:singleLine="true" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -111,6 +112,7 @@
                         android:hint="@string/leaving_date"
                         android:inputType="text"
                         android:maxLines="1"
+                        android:focusableInTouchMode="false"
                         android:singleLine="true" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -132,6 +134,7 @@
                     android:hint="@string/notice_period"
                     android:inputType="text"
                     android:maxLines="1"
+
                     android:singleLine="true" />
 
             </android.support.design.widget.TextInputLayout>
