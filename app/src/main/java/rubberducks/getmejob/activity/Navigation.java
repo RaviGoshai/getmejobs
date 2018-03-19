@@ -16,8 +16,10 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 import rubberducks.getmejob.JobSearch.JobSearchActivity;
+import rubberducks.getmejob.JobSearch.JobStatusActivity;
 import rubberducks.getmejob.Profile.EmployeProfile;
 import rubberducks.getmejob.R;
+import rubberducks.getmejob.Registration.LoginSelection;
 
 public class Navigation extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -74,6 +76,12 @@ public class Navigation extends AppCompatActivity
 
         }
 
+        else if (id == R.id.nav_jobStatus) {
+            Intent intent=new Intent(Navigation.this, JobStatusActivity.class);
+            startActivity(intent);
+
+        }
+
         else if (id == R.id.nav_profile) {
             Intent intent=new Intent(Navigation.this, EmployeProfile.class);
             startActivity(intent);
@@ -91,7 +99,11 @@ public class Navigation extends AppCompatActivity
 
         }
 
+        else if (id == R.id.nav_logout) {
+            Intent intent=new Intent(Navigation.this, LoginSelection.class);
+            startActivity(intent);
 
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

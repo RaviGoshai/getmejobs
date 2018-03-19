@@ -33,7 +33,7 @@ public class JobDescription extends AppCompatActivity  implements View.OnClickLi
            jobDesRecycleView.setNestedScrollingEnabled(false);
            jobDesRecycleView.setHasFixedSize(false);
 
-
+           setSupportActionBar(myToolbar);
            myToolbar.setTitle(R.string.job_search_header);
            myToolbar.setNavigationIcon(R.drawable.ic_back);
            myToolbar.setNavigationOnClickListener(new View.OnClickListener() {

@@ -9,6 +9,8 @@ import rubberducks.getmejob.R;
 
 public class StudentHistory extends AppCompatActivity {
     private Toolbar myToolbar;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

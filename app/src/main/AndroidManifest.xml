@@ -42,30 +42,44 @@
         <activity
             android:name=".Registration.VerifyOTP"
             android:screenOrientation="portrait" />
-        <activity android:name=".Registration.ResetPassword"
+        <activity
+            android:name=".Registration.ResetPassword"
             android:screenOrientation="portrait" />
-        <activity android:name=".activity.HomeActivity"
+        <activity
+            android:name=".activity.HomeActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".JobSearch.JobSearchActivity"
+        <activity
+            android:name=".JobSearch.JobSearchActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".JobSearch.AllJobsActivity"
+        <activity
+            android:name=".JobSearch.AllJobsActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".JobSearch.JobDescription"
+        <activity
+            android:name=".JobSearch.JobDescription"
             android:screenOrientation="portrait" />
-        <activity android:name=".activity.StudentHistory"
+        <activity
+            android:name=".activity.StudentHistory"
             android:screenOrientation="portrait" />
-        <activity android:name=".activity.SettingActivity"
+        <activity
+            android:name=".activity.SettingActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activity.Notifcation"
+        <activity
+            android:name=".activity.Notifcation"
             android:screenOrientation="portrait" />
-        <activity android:name=".Profile.EmployeProfile"
+        <activity
+            android:name=".Profile.EmployeProfile"
             android:screenOrientation="portrait" />
-        <activity android:name=".Profile.QualificationActivity"
+        <activity
+            android:name=".Profile.QualificationActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".Profile.WorkExprience"
+        <activity
+            android:name=".Profile.WorkExprience"
             android:screenOrientation="portrait" />
-        <activity android:name=".JobSearch.PreferenceActivity"
-            android:screenOrientation="portrait" ></activity>
+        <activity
+            android:name=".JobSearch.PreferenceActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Profile.SkillActivity" />
+        <activity android:name=".JobSearch.JobStatusActivity"></activity>
     </application>
 
 </manifest>

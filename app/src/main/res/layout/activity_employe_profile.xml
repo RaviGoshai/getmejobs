@@ -43,6 +43,28 @@
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin">
 
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/fresher"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/exprience"/>
+
+
+
+            </RadioGroup>
+
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -94,6 +116,7 @@
                 android:id="@+id/qualification_txt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:drawableRight="@drawable/ic_add_circle"
                 android:text="@string/qualification"
                 android:textColor="@color/Black"/>

@@ -140,7 +140,7 @@ for jobs.</string>
     <string name="notice_period">Notice Period (optional)</string>
     <string name="wwork_exprience_tag">If you are not working  currently, add information about your last job.</string>
 
-    <!--  Prf-->
+    <!--  preferred Activity-->
     <string name="sort_by">Sort by</string>
     <string name="preferred_location">Preferred Location</string>
     <string name="relevance">Relevance</string>
@@ -148,6 +148,13 @@ for jobs.</string>
     <string name="designation">Designation</string>
     <string name="preferences">Preferences</string>
     <string name="dob">Date of birth</string>
+
+    <!--  SKill Activity-->
+    <string name="skill_tag">Add your key skills and area of expertise, it help
+to find job recommendations matching there skills.</string>
+    <string name="skill_header">Skills</string>
+    <string name="Skill_tag_sec">Added skills and area of expertise</string>
+    <string name="Skill_tag_suggested">Suggested skills and area of expertise</string>
 
 
 </resources>

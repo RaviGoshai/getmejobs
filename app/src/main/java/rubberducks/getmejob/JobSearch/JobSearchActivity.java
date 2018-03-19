@@ -35,6 +35,7 @@ public class JobSearchActivity extends AppCompatActivity implements View.OnClick
         jobSearchBtn = (Button) findViewById(R.id.job_search_btn);
         jobSearchBtn.setOnClickListener(this);
 
+        setSupportActionBar(myToolbar);
         myToolbar.setTitle(R.string.job_search_header);
         myToolbar.setNavigationIcon(R.drawable.ic_back);
         myToolbar.setNavigationOnClickListener(new View.OnClickListener() {
