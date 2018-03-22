@@ -2,19 +2,12 @@ package rubberducks.getmejob.Interface;
 
 import com.google.gson.JsonObject;
 
-import java.util.Map;
-
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
-import retrofit2.http.Multipart;
 import retrofit2.http.POST;
-import retrofit2.http.Part;
-import retrofit2.http.PartMap;
-import retrofit2.http.Query;
+import rubberducks.getmejob.Data.UserData;
 
 
 /**
@@ -25,15 +18,15 @@ public interface RetrofitApiCall {
 
     @FormUrlEncoded
     @POST(Constants.LOGIN)
-    Call<Constants> login(@Field("email") String email, @Field("password") String password);
+    Call<UserData> login(@Field("mobile") String mobile, @Field("password") String password);
 
     @FormUrlEncoded
     @POST(Constants.REGISTRATION)
-    Call<JsonObject> userRegister(@Field("mobile") String mobile,@Field("email") String email);
+    Call<JsonObject> userRegister(@Field("mobile") String mobile, @Field("email") String email);
 
     @FormUrlEncoded
     @POST(Constants.OTP_VERIFY)
-    Call<JsonObject> verifyOTP(@Field("mobile") String email, @Field("otp") String password);
+    Call<JsonObject> verifyOTP(@Field("email") String email, @Field("otp") String otp, @Field("name") String name, @Field("password") String password, @Field("mobile") String contact);
 
     @FormUrlEncoded
     @POST(Constants.FORGET_PASSWORD)
@@ -41,7 +34,10 @@ public interface RetrofitApiCall {
 
     @FormUrlEncoded
     @POST(Constants.RESET_PASSWORD)
-    Call<JsonObject> resetPassword(@Field("seekerId") String seekerId,@Field("password") String password);
+    Call<JsonObject> resetPassword( @Field("mobile") String mobile, @Field("password") String password);
+
+    @POST(Constants.FORGET_PASSWORD_VARIFY_OTP)
+    Call<JsonObject> forgetPasswordVarifyOtp(@Field("otp") String otp);
 
 
     @GET(Constants.PREFERRED_LOCATION)

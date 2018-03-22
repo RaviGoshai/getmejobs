@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.gson.JsonObject;
 
@@ -30,6 +31,7 @@ public class ForgetPassword extends AppCompatActivity implements View.OnClickLis
     private LoaderDialog loaderDialog;
     private RetrofitApiCall apiClient;
     private View rootView;
+    private String mobileStr;
     private static final String TAG = ForgetPassword.class.getSimpleName();
 
     @Override
@@ -62,14 +64,14 @@ public class ForgetPassword extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.next_forget_pass_button:
-                Intent i = new Intent(ForgetPassword.this, VerifyOTP.class);
-                startActivity(i);
+                validation();
+                callForgetPassApi(mobileStr);
                 break;
         }
     }
 
     private void validation(){
-        String mobileStr = mobile.getText().toString();
+       mobileStr = mobile.getText().toString();
 
         if(TextUtils.isEmpty(mobileStr)){
             mobile.setError(getString(R.string.error_field_required));
@@ -93,6 +95,16 @@ public class ForgetPassword extends AppCompatActivity implements View.OnClickLis
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 loaderDialog.dismissDialog(ForgetPassword.this);
                 Log.e(TAG,"response :"+response);
+
+                boolean isSuccess= response.body().get("success").getAsBoolean();
+                String message= response.body().get("message").getAsString();
+                if(isSuccess){
+                    Intent i = new Intent(ForgetPassword.this, VerifyForgetOtp.class);
+                    startActivity(i);
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+                }
             }
 
             @Override

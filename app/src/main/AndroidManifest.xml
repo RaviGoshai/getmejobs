@@ -40,6 +40,9 @@
             android:name=".Registration.ForgetPassword"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".Registration.VerifyForgetOtp"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".Registration.VerifyOTP"
             android:screenOrientation="portrait" />
         <activity

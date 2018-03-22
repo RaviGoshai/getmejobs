@@ -15,6 +15,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.gson.JsonObject;
+
+import org.json.JSONObject;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -95,23 +99,23 @@ public class LoginWithGmail extends Fragment implements View.OnClickListener {
 
         }
     }
-    private void callLoginApi(String email,String password){
-        Call<Constants> call = apiClient.login(email, password);
+  /*  private void callLoginApi(String email,String password){
+        Call<JsonObject> call = apiClient.login(email, password);
         loaderDialog.showDialog(getActivity(), false);
-        call.enqueue(new Callback<Constants>() {
+        call.enqueue(new Callback<JSONObject>() {
             @Override
-            public void onResponse(Call<Constants> call, Response<Constants> response) {
+            public void onResponse(Call<JSONObject> call, Response<JSONObject> response) {
                 loaderDialog.dismissDialog(getActivity());
                 Log.e(TAG,"response :"+response);
             }
 
             @Override
-            public void onFailure(Call<Constants> call, Throwable t) {
+            public void onFailure(Call<JSONObject> call, Throwable t) {
                 Log.e(TAG,"error :"+t.toString());
                 loaderDialog.dismissDialog(getActivity());
             }
         });
-    }
+    }*/
 
 
     private boolean isEmailValid(String email) {

@@ -1,11 +1,8 @@
 package rubberducks.getmejob.Registration;
 
 import android.content.Intent;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
@@ -14,30 +11,31 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import com.google.gson.Gson;
+import android.widget.Toast;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import rubberducks.getmejob.Controller.DataController;
-import rubberducks.getmejob.Interface.Constants;
+import rubberducks.getmejob.Data.Data;
+import rubberducks.getmejob.Data.UserData;
 import rubberducks.getmejob.Interface.RetrofitApiCall;
 import rubberducks.getmejob.R;
-import rubberducks.getmejob.Registration.LoginFragment.Pager;
 import rubberducks.getmejob.Utils.LoaderDialog;
 import rubberducks.getmejob.activity.HomeActivity;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView forgetPass;
     private AutoCompleteTextView mobileNum;
     private EditText mPasswordView;
     private static final String TAG = LoginActivity.class.getSimpleName();
     private LoaderDialog loaderDialog;
     private RetrofitApiCall apiClient;
-    private Button emailSignInButton;;
+    private Button emailSignInButton;
     private Toolbar myToolbar;
     private View rootView;
+    String mobile, password;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,11 +47,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
-    private void setUpUi(){
+    private void setUpUi() {
         mobileNum = (AutoCompleteTextView) findViewById(R.id.mobile);
         mPasswordView = (EditText) findViewById(R.id.password);
         forgetPass = (TextView) findViewById(R.id.forget_pass);
         emailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
+
 
         myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
@@ -68,14 +67,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         emailSignInButton.setOnClickListener(this);
         forgetPass.setOnClickListener(this);
     }
+
     private void loginValidation() {
         // Reset errors.
         mobileNum.setError(null);
         mPasswordView.setError(null);
 
         // Store values at the time of the login attempt.
-        String email = mobileNum.getText().toString();
-        String password = mPasswordView.getText().toString();
+        mobile = mobileNum.getText().toString();
+        password = mPasswordView.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
@@ -87,7 +87,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             cancel = true;
         }
         // Check for a valid email address.
-        if (TextUtils.isEmpty(email)) {
+        if (TextUtils.isEmpty(mobile)) {
             mobileNum.setError(getString(R.string.error_field_required));
             focusView = mobileNum;
             cancel = true;
@@ -97,25 +97,41 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             } else {
 
             }
-        }}
-    private void callLoginApi(String email,String password){
-        Call<Constants> call = apiClient.login(email, password);
-        loaderDialog.showDialog(LoginActivity.this, false);
-        call.enqueue(new Callback<Constants>() {
+        }
+    }
+
+    private void callLoginApi(String mobile, String password) {
+        Call<UserData> call = apiClient.login(mobile, password);
+        call.enqueue(new Callback<UserData>() {
             @Override
-            public void onResponse(Call<Constants> call, Response<Constants> response) {
-                loaderDialog.dismissDialog(LoginActivity.this);
-                Log.e(TAG,"response :"+response);
+            public void onResponse(Call<UserData> call, Response<UserData> response) {
+
+                UserData userData = response.body();
+                Data data = userData.getData();
+                String name=data.getName();
+                String email=data.getEmail();
+                String mobile=data.getMobile();
+
+                if (userData.getSuccess()) {
+
+                    Intent home_intent = new Intent(LoginActivity.this, HomeActivity.class);
+                    home_intent.putExtra("name", name);
+                    home_intent.putExtra("email", email);
+                    home_intent.putExtra("mobile", mobile);
+                    startActivity(home_intent);
+                } else {
+                    Toast.makeText(LoginActivity.this, userData.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+
             }
 
             @Override
-            public void onFailure(Call<Constants> call, Throwable t) {
-                Log.e(TAG,"error :"+t.toString());
-                loaderDialog.dismissDialog(LoginActivity.this);
+            public void onFailure(Call<UserData> call, Throwable t) {
+                Log.e("Exception", t.getMessage());
+
             }
         });
     }
-
 
 
     private boolean isPasswordValid(String password) {
@@ -125,19 +141,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.forget_pass:
-                Intent intent=new Intent(LoginActivity.this, ForgetPassword.class);
+                Intent intent = new Intent(LoginActivity.this, ForgetPassword.class);
                 startActivity(intent);
                 break;
 
             case R.id.email_sign_in_button:
-                Intent home_intent=new Intent(LoginActivity.this, HomeActivity.class);
-                startActivity(home_intent);
+                loginValidation();
+                callLoginApi(mobile, password);
+
                 break;
         }
     }
-
 
 
 }

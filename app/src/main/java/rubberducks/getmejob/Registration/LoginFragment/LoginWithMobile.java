@@ -91,7 +91,7 @@ public class LoginWithMobile extends Fragment implements View.OnClickListener {
 
         }
     }}
-    private void callLoginApi(String email,String password){
+   /* private void callLoginApi(String email,String password){
         Call<Constants> call = apiClient.login(email, password);
         loaderDialog.showDialog(getActivity(), false);
         call.enqueue(new Callback<Constants>() {
@@ -107,7 +107,7 @@ public class LoginWithMobile extends Fragment implements View.OnClickListener {
                 loaderDialog.dismissDialog(getActivity());
             }
         });
-    }
+    }*/
 
 
 

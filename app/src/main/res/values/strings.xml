@@ -6,7 +6,7 @@
     <string name="fresher">Fresher</string>
     <string name="ok">OK</string>
     <string name="prompt_email">Email Address</string>
-    <string name="prompt_password">Create Password</string>
+    <string name="prompt_password">Enter Password</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
@@ -155,6 +155,7 @@ to find job recommendations matching there skills.</string>
     <string name="skill_header">Skills</string>
     <string name="Skill_tag_sec">Added skills and area of expertise</string>
     <string name="Skill_tag_suggested">Suggested skills and area of expertise</string>
+    <string name="log_in">Log In</string>
 
 
 </resources>
